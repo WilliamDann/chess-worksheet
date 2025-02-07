@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Chess Assignment</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <style>
+        .page {
+            width: 8.5in;
+            height: 11in;
+        }
+
+        /* To hide elements when printing dialoag is active */
+        @media print {
+            .no-print, no-print * {
+                display: none !important;
+            }
+
+        }
+    </style>
+    <link rel="icon" type="image/png" href="/favicon.png"/>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <!-- Chess libs -->
+    <!-- <script src="js/chess/js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="/js/chessboard-1.0.0.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/chessboard-1.0.0.css">
+    <script src="/js/editor.js"></script>
+</head>
+
+<body class="font-[Alice]">
+    <div class="no-print border-1 border-dashed p-5 m-5 absolute top-0 right-0 z-10 bg-white">
+        <p class="font-bold text-lg">Export Settings</p>
+        
+        <div id="editor" class="grid grid-cols-2">
+
+            <p class="font-bold">Size Settings</p><br>
+            <label class="inline" for="exWidth">Exercise Width (in)</label>
+            <input id="exWidth" name="exWidth" class="inline border-1 border-solid" type="text" value="3.5">
+    
+            <label class="inline" for="answerSpace">Answer Space (in)</label>
+            <input id="answerSpace" name="answerSpace" class="inline border-1 border-solid" type="text" value="1">
+
+            <label class="inline" for="labOrientation">Label Orientation</label>
+            <select id="labOrientation" name="labOrientation" class="inline border-1 border-solid">
+                <!-- Populated by JS -->
+            </select>
+
+            <p class="font-bold">Theme Settings</p><br>
+            <label class="inline" for="whiteSquareColor">White Square Color</label>
+            <input id="whiteSquareColor" type="color" name="whiteSquareColor">
+
+            <label class="inline" for="blackSquareColor">Black Square Color</label>
+            <input id="blackSquareColor" type="color" name="blackSquareColor">
+
+            <label class="inline">Piece Set</label>
+            <select class="inline" id="pieceSet" name="pieceSet" class="inline border-1 border-solid">
+                <!-- Populated by JS -->
+            </select>
+
+            <button class="w-1/2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5" onclick="buildBoards()">Apply</button>
+            <button class="w-1/2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5" onclick="resetParams()">Reset</button>
+        </div>
+
+        <br>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="hideButton" onclick="toggleEditor()">Hide</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="hideButton" onclick="print()">Print</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="hideButton" onclick="history.back()">Back</button>
+    </div>
+
+    <div class="page">
+        <div class="p-2 border-b-1 border-dashed mb-1">
+            <b class="inline" contenteditable="true"><%= assignment.title %> - </b>
+            <p class="inline" contenteditable="true"><%= assignment.author %> - <%= new Date().toJSON().slice(0,10).replace(/-/g,'/'); %></p>
+        </div>
+    
+        <div id="boards" class="grid grid-cols-2">
+
+        </div>
+    </div>
+</body>
+
+<!-- create boards -->
+<script>
+    // passed from server
+    const fens = "<%= fens %>".split(',');
+
+    buildEditor();
+    readEditorParams();
+    buildBoards();
+</script>

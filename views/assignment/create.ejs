@@ -1,0 +1,78 @@
+<%- include('../base/top') %>
+
+<script>
+    function handle_file_select( evt ) {
+        console.info ( "[Event] file chooser" );
+
+        let fl_files = evt.target.files; // JS FileList object
+
+        // use the 1st file from the list
+        let fl_file = fl_files[0];
+
+        let reader = new FileReader(); // built in API
+
+        let display_file = ( e ) => { // set the contents of the <textarea>
+            console.info( '. . got: ', e.target.result.length, e );
+            document.getElementById( 'upload_file' ).value = e.target.result;
+            };
+
+        let on_reader_load = ( fl ) => {
+            console.info( '. file reader load', fl );
+            return display_file; // a function
+            };
+
+        // Closure to capture the file information.
+        reader.onload = on_reader_load( fl_file );
+
+        // Read the file as text.
+        reader.readAsText( fl_file );
+    }
+</script>
+
+<div class="flex flex-wrap w-full bg-stone-100 rounded-xl p-5 m-5">
+    <h2 class="text-2xl text-gray-900 pb-10">Create Worksheet</h2>
+    <form class="w-full" method="post" action="/assignment/create" enctype="application/x-www-form-urlencoded">
+        <div class="grid grid-cols-4 md:grid-cols-8 gap-3">
+            <div class="flex items-center">
+                <label class="text-gray-500 font-bold mb-1 md:mb-0 mr-2 whitespace-nowrap" for="title">Assignment Title:</label>
+            </div>
+        </div>
+
+        <div class="flex items-center col-span-3"> <!-- Grid cell -->
+            <input name="title" class="appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-800" type="text" placeholder="Assignment Title" />
+        </div>
+
+        <div class="grid grid-cols-4 md:grid-cols-8 gap-3">
+            <div class="flex items-center">
+                <label class="text-gray-500 font-bold mb-1 md:mb-0 mr-2 whitespace-nowrap" for="descr">Asignment Desc:</label>
+            </div>
+        </div>
+
+        <div class="flex items-center col-span-3"> <!-- Grid cell -->
+            <input name="descr" class="appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-800" type="text" placeholder="Assignment Desc" />
+        </div>
+
+        <div class="grid grid-cols-4 md:grid-cols-8 gap-3">
+            <div class="flex items-center">
+                <label class="text-gray-500 font-bold mb-1 md:mb-0 mr-2 whitespace-nowrap" for="pgn">PGN File:</label>
+            </div>
+        </div>
+
+        <div class="flex items-center col-span-3"> <!-- Grid cell -->
+            <input id="upload" class="appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-800" type="file" accept=".pgn" />
+        </div>
+
+        <div class="flex items-center col-span-3"> <!-- Grid cell -->
+            <input name="pgn" type="hidden" id="upload_file">
+        </div>
+
+        <br>
+        <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit" value="Create Worksheet">
+    </form>
+</div>
+
+<script>
+    document.getElementById( 'upload' ).addEventListener( 'change', handle_file_select, false );
+</script>
+
+<%- include('../base/bottom') %>

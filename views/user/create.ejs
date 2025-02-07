@@ -1,0 +1,44 @@
+<%- include('../base/top') %>
+
+<div class="flex flex-wrap w-full bg-stone-100 rounded-xl p-10 m-10">
+    <h2 class="text-2xl text-gray-900 pb-10">Create User</h2>
+    <form class="w-full" method="post" action="/user/create" enctype="application/x-www-form-urlencoded">
+        <div class="grid grid-cols-4 md:grid-cols-8 gap-3">
+            <div class="flex items-center">
+                <label class="text-gray-500 font-bold mb-1 md:mb-0 mr-2 whitespace-nowrap" for="email">Email Address:</label>
+            </div>
+        </div>
+
+        <div class="flex items-center col-span-3"> <!-- Grid cell -->
+            <input name="email" class="appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-800" type="email" placeholder="Email" />
+        </div>
+
+        <div class="grid grid-cols-4 md:grid-cols-8 gap-3">
+            <div class="flex items-center">
+                <label class="text-gray-500 font-bold mb-1 md:mb-0 mr-2 whitespace-nowrap" for="username">Username:</label>
+            </div>
+        </div>
+
+        <div class="flex items-center col-span-3"> <!-- Grid cell -->
+            <input name="username" class="appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-800" type="text" placeholder="Username" />
+        </div>
+
+        <div class="grid grid-cols-4 md:grid-cols-8 gap-3">
+            <div class="flex items-center">
+                <label class="text-gray-500 font-bold mb-1 md:mb-0 mr-2 whitespace-nowrap" for="email">Password:</label>
+            </div>
+        </div>
+
+        <div class="flex items-center col-span-3"> <!-- Grid cell -->
+            <input name="password" class="appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-800" type="password" placeholder="Password" />
+        </div>
+
+        <br>
+        <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit" value="Create User">
+    </form>
+
+
+    <a href="/user/auth" class="text-2xl text-gray-900 py-10">Sign In</a>
+</div>
+
+<%- include('../base/bottom') %>

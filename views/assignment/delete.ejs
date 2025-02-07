@@ -1,0 +1,29 @@
+<%- include('../base/top') %>
+
+<script>
+    console.log("<%= assignment.id %>");
+</script>
+
+<div class="bg-stone-100 rounded-xl p-10 m-10">
+    <div class="px-4 sm:px-0">
+        <h3 class="text-2xl">Delete Worksheet</h3>
+        <p class="mt-1 max-w-2xl text-sm/6 text-red-500">Are you sure you want to delete this assignment?</p>
+    </div>
+
+    <div class="mt-6 border-t border-gray-100">
+        <dl class="divide-y divide-gray-100">
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">Title</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"><%= assignment.title %></dd>
+            </div>
+        </dl>
+    </div>
+
+    <form action="/assignment/delete" enctype="application/x-www-form-urlencoded" method="post">
+        <input type="hidden" name="id" value="<%= assignment.id %>">
+        <input type="submit" class="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded" value="Yes, Delete">
+    </form>
+</div>
+
+
+<%- include('../base/bottom') %>

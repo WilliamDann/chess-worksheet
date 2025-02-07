@@ -1,0 +1,51 @@
+<%- include('../base/top') %>
+
+<form action="/assignment/update" enctype="application/x-www-form-urlencoded" method="post">
+    <div class="bg-stone-100 rounded-xl p-10 m-10">
+        <div class="px-4 sm:px-0">
+            <h3 class="text-2xl">Edit Assignment Information</h3>
+            <p class="mt-1 max-w-2xl text-sm/6 text-gray-500">Update your assignment information</p>
+        </div>
+
+        <div class="mt-6 border-t border-gray-100">
+            <dl class="divide-y divide-gray-100">
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm/6 font-medium text-gray-900">ID</dt>
+                <input type="text" name="id" class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0" value="<%= assignment.id %>" readonly>
+                </div>
+            </dl>
+        </div>
+
+        <div class="mt-6 border-t border-gray-100">
+            <dl class="divide-y divide-gray-100">
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm/6 font-medium text-gray-900">Title</dt>
+                <input type="text" name="title" class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0" value="<%= assignment.title %>">
+                </div>
+            </dl>
+        </div>
+
+        <div class="mt-6 border-t border-gray-100">
+            <dl class="divide-y divide-gray-100">
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm/6 font-medium text-gray-900">Desc</dt>
+                <input type="text" name="descr" class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0" value="<%= assignment.descr %>">
+                </div>
+            </dl>
+        </div>
+
+        <div class="mt-6 border-t border-gray-100">
+            <dl class="divide-y divide-gray-100">
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm/6 font-medium text-gray-900">Author</dt>
+                <input type="text" class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0" value="<%= assignment.username %>" readonly>
+                </div>
+            </dl>
+        </div>
+    </div>
+    <input type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+</form>
+
+<br>
+
+<%- include('../base/bottom') %>
