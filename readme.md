@@ -1,7 +1,7 @@
 # starting the app
 
 1. first install node.js.
-2. use npm to install dependances
+2. use npm to install dependances. if you are in the same directory as the package.json it will do it for you!
 ```
 npm i
 ```
