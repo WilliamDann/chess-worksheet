@@ -1,0 +1,15 @@
+<%- include('../base/top') %>
+
+<div class="bg-stone-100 rounded-xl p-10 m-10">
+    <p class="text-2xl">
+        My Classes
+    </p>
+
+    <% classes.forEach(clss => { %>
+        <%- include('show', { clss: clss }); %>
+    <% }); %>
+</div>
+
+<a href="/class/create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">New Class</a>
+
+<%- include('../base/bottom') %>

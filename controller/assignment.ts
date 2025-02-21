@@ -134,7 +134,7 @@ export default function()
             throw new PermissionError();
 
         // do not allow changing of the author
-        delete assignment.author;
+        delete req.body.author;
 
         await queryAsync(`update assignments ${sqlSetString(req.body)} where id=${escape(req.body.id)}`);
         

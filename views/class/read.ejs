@@ -1,0 +1,51 @@
+<%- include('../base/top') %>
+
+<div class="bg-stone-100 rounded-xl p-10 m-10">
+    <div class="px-4 sm:px-0">
+        <h3 class="text-2xl">Class Information</h3>
+        <p class="mt-1 max-w-2xl text-sm/6 text-gray-500">View class information</p>
+    </div>
+
+    <div class="mt-6 border-t border-gray-100">
+        <dl class="divide-y divide-gray-100">
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">Title</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"><%= clss.name %></dd>
+            </div>
+        </dl>
+    </div>
+
+    <div class="mt-6 border-t border-gray-100">
+        <dl class="divide-y divide-gray-100">
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">Desc</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"><%= clss.descr %></dd>
+            </div>
+        </dl>
+    </div>
+
+    <div class="mt-6 border-t border-gray-100">
+        <dl class="divide-y divide-gray-100">
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">ID</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"><%= clss.id %></dd>
+            </div>
+        </dl>
+    </div>
+
+    <div class="mt-6 border-t border-gray-100">
+        <dl class="divide-y divide-gray-100">
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/6 font-medium text-gray-900">Author</dt>
+                <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"><%= clss.name %></dd>
+            </div>
+        </dl>
+    </div>
+
+    <a href="/class/update?id=<%= clss.id %>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
+    <a href="/class/export?id=<%= clss.id %>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Export</a>
+    <a href="/class/delete?id=<%= clss.id %>" class="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded">Delete</a>
+</div>
+
+
+<%- include('../base/bottom') %>

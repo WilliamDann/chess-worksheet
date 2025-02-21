@@ -1,0 +1,42 @@
+<%- include('../base/top') %>
+
+<form action="/class/update" method="post" enctype="application/x-www-form-urlencoded">
+    <div class="bg-stone-100 rounded-xl p-10 m-10">
+        <div class="px-4 sm:px-0">
+            <h3 class="text-2xl">Class Information</h3>
+            <p class="mt-1 max-w-2xl text-sm/6 text-gray-500">View class information</p>
+        </div>
+        
+        <div class="mt-6 border-t border-gray-100">
+            <dl class="divide-y divide-gray-100">
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm/6 font-medium text-gray-900">Name</dt>
+                    <input name='name' type="text" name="" value="<%= clss.name %>" class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                </div>
+            </dl>
+        </div>
+        
+        <div class="mt-6 border-t border-gray-100">
+            <dl class="divide-y divide-gray-100">
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm/6 font-medium text-gray-900">Desc</dt>
+                    <input name='descr' type="text" name="" value="<%= clss.descr %>" class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                </div>
+            </dl>
+        </div>
+        
+        <div class="mt-6 border-t border-gray-100">
+            <dl class="divide-y divide-gray-100">
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm/6 font-medium text-gray-900">ID</dt>
+                    <input name='id' type="text" name="" value="<%= clss.id %>" class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0" readonly>
+                </div>
+            </dl>
+        </div>
+        
+        <input type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    </div>
+</form>
+
+
+<%- include('../base/bottom') %>

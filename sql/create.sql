@@ -23,8 +23,10 @@ create table if not exists classes (
     id      int not null auto_increment,
     name    varchar(124),
     descr   varchar(500),
+    coach   int,
 
-    primary key (id)
+    primary key (id),
+    foreign key (coach) references users(id)
 );
 
 create table if not exists enrollment (
