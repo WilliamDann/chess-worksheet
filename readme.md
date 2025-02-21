@@ -13,7 +13,10 @@ tsc --version
 
 This should output a version number for typescript
 
-4. Run the app
+4. Install MySql
+You will need to install mysql.
+
+6. Run the app
 ```
 node main.js
 ```

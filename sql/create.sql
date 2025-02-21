@@ -1,4 +1,4 @@
--- Active: 1738795925695@@127.0.0.1@3306@chessws
+create schema if not exists chessws;
 use chessws;
 
 create table if not exists users (
