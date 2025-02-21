@@ -18,7 +18,7 @@ You will need to install mysql.
 
 6. Run the app
 ```
-node bin/main.js
+npm run start
 ```
 
 It should then be running on http://localhost:8080
